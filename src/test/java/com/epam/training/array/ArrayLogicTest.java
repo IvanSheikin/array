@@ -49,4 +49,20 @@ public class ArrayLogicTest {
         ArrayLogic arrayLogic = new ArrayLogic();
         Assert.assertEquals(9999, arrayLogic.findMaxNumber(array));
     }
+    
+    @Test
+    public void testFindFibonacciNumbers(){
+        Array array = new Array();
+        ArrayLogic arrayLogic = new ArrayLogic();
+        int[] arrayBox1 = {2, 4, 20, 89, 144, 10, 100};
+        int[] arrayBox2 = {2, 89, 144};
+        array.setItems(arrayBox1);
+        arrayLogic.findFibonacciNumbers(array);
+        boolean checker = true;
+        for(int i = 0; i < array.getItems().length; i++){
+            if(array.getItems()[i] != arrayBox2[i])
+                checker = false;
+        }
+        Assert.assertEquals(true, checker);
+    }
 }
