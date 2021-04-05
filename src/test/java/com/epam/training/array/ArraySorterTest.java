@@ -5,7 +5,7 @@ import org.junit.Assert;
 
 public class ArraySorterTest {
 
-    //TODO: uncomment test when junit dependency is added
+   
     @Test
     public void testSortShouldSortWhenPositiveNumbers(){
         ArraySorter arraySorter = new ArraySorter();
