@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ArrayLogic {
 
-    //TODO: write it using binary search
+  
     public boolean exists(Array array, int element) {
         int[] arrayBox = new ArraySorter().sort(array).getItems();
         boolean helper = false;
