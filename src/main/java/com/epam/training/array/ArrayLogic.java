@@ -72,30 +72,28 @@ public class ArrayLogic {
     }
 
     public Array findFibonacciNumbers(Array array){
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        for (int i : array.getItems()){
-            boolean check = false;
-            if (i == 1)
-                check = true;
-            else {
-                int n0 = 1, n1 = 1, n2;
-                for (int j = 3; j <= i; i++){
-                    if (n0 + n1 == i)
-                        check = true;
-                    else {
-                        n2 = n0 + n1;
-                        n0 = n1;
-                        n1 = n2;
-                    }
-
+        int n0 = 1;
+        int n1 = 1;
+        int n2;
+        ArrayList<Integer> fibonacciNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        fibonacciNumbers.add(1);
+        for(int i = 3; i <= findMaxNumber(array); i++){
+            n2=n0+n1;
+            fibonacciNumbers.add(n2);
+            n0=n1;
+            n1=n2;
+        }
+        for(int i = 0; i < fibonacciNumbers.size(); i++){
+            for (int j : array.getItems()){
+                if (fibonacciNumbers.get(i) == j){
+                    res.add(fibonacciNumbers.get(i));
                 }
             }
-            if (check)
-                list.add(i);
         }
-        int[] helper = new int[list.size()];
+        int[] helper = new int[res.size()];
         for (int i = 0; i < helper.length; i++){
-            helper[i] = list.get(i);
+            helper[i] = res.get(i);
         }
         array.setItems(helper);
         return array;
